@@ -6,6 +6,8 @@
   --accent: #e50914;
 }
 
+/*#region JellyFlix Default*/
+
 /*Highlight*/
 
 ::-moz-selection {
@@ -2282,3 +2284,116 @@ div:not(.paperList) .listItem {
 .mdl-spinner__layer.mdl-spinner__layer-4.mdl-spinner__layer-4-active {
   border-color: var(--accent);
 }
+
+/*#endregion RegionName*/
+
+/*#region JellyFlix Bane*/
+/* ================================================ */
+/* ===== Bane Changes ===================================================== */
+/* ================================================================================================ */
+
+/* ================= */
+/* ===== Fixes =============== */
+/* ===================================== */
+
+/* Music Playing Bar Always On Top */
+.appfooter { z-index: 100; }
+
+/* Remove huge gap between top section and tracks when music exists only */
+body:has([data-type="Audio"]) .hide + .detailPageWrapperContainer .detailPagePrimaryContent { min-height: unset !important; }
+
+/* Better pad out soundtrack display */
+body:has([data-type="Audio"]) #itemDetailPage .vertical-list { grid-template-columns: 1fr repeat(3, 1fr) 1fr;  }
+
+/* Stretch tracks across more columns */
+body:has([data-type="Audio"]) #itemDetailPage .vertical-list > div { grid-column: 2/5; }
+/* This fixes the Disc Number label breaking when a track lacks one while others do */
+body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/5; }
+
+/* Apparently the above also fixes an issue where non-Disc'd albums line up horizontally/in a big lump */
+
+/* Limit length of Title to stop screen overflow */
+.itemName { max-width: 65vw;  }
+
+/* Fix profile picture breaky-weaky */
+.headerUserButton .paper-icon-button-light:hover:not(:disabled) 
+{   
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border-radius: 100em;
+  background-size: cover;
+}
+
+/* Not a fix, just a fancy bubble for the sliders */
+.sliderBubble
+{
+  width: 100px;
+  height: 100px;
+  border-radius: 100px 100px 100px 10px;
+  
+  background: #e50914cc !important;
+  
+  box-shadow: 0 0 5px 5px #0009;
+    
+  transform: rotate(-45deg) translateY(-110px) translateX(43px) scale(.7);
+}
+.sliderBubble > h1 { transform: rotate(45deg) scale(1.2); }
+
+.nowPlayingBarVolumeSliderContainer .sliderBubble
+{
+  transform: rotate(-45deg) translateY(-100px) translateX(32px) scale(.5);
+}
+
+
+/* Sidebar not shrink on hover active element */
+.navMenuOption:before { height: 1.5em !important;}
+
+/* Smaller sidebar elements */
+.navMenuOption { padding: 0.3em 0 0.3em 1.5em !important; }
+
+/* Remove a chunnk from the sidebar causing the need to scroll */
+.mainDrawer-scrollContainer { padding-bottom: 0; }
+
+
+/* ======================== */
+/* ===== Netflix-isms =============== */
+/* ============================================ */
+
+/* Netflix-ise Section Headers */
+.sectionTitleTextButton { width: fit-content; }
+.sectionTitle { display: inline-block; }
+
+.sectionTitle+span::before 
+{ 
+  opacity: 0;
+  margin-left: -20px;
+  
+  font-size:10pt;
+  
+  transition: 200ms ease-in-out; 
+}
+
+.sectionTitleTextButton:hover span::before 
+{ 
+  content: "Explore all";
+  font-family: "Netflix Sans", sans-serif !important;
+  margin-left: 5px;
+  
+  width: fit-content;
+  opacity: 1; 
+}
+
+.sectionTitleTextButton:hover span::after
+{ 
+  content: "\e5cc";
+  font-size:14pt;
+  font-weight: 1000;
+  position: relative;
+  top: 3px;
+  
+  opacity: 1; 
+}
+
+.sectionTitleTextButton>.material-icons { color: #54b9c5; }
+
+/*#endregion*/
