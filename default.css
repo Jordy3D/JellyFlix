@@ -2362,6 +2362,12 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
 @media screen and (max-width: 500px) 
 {
   /* Fiddle with Title section to make everything work peroperly */
+  .layout-mobile .infoWrapper
+  {
+    padding-left: 23px !important;
+    
+    margin-top: 5vh;
+  }
   #itemDetailPage:not(.noBackdrop) .detailPageWrapperContainer .detailPagePrimaryContainer
   {
     display: flex !important;
@@ -2382,29 +2388,35 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
     max-width: unset;
   }
   /* Resize title to be slightly smaller */
-  .hide + .detailPageWrapperContainer .detailRibbon { font-size: 100% !important; }
+  .hide + .detailPageWrapperContainer .detailRibbon,
+  .layout-mobile #itemDetailPage .itemName.infoText.parentNameLast
+  { font-size: 100% !important; }
   
   /* Allow albums on mobile to take up more space on the screen (or rather, not leave empty space) */
   #albumsTab .vertical-wrap
   {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 50%);
     gap: 15px;
     
-    width: calc(100% - 52px) !important;
-    left: 22px !important;
+    width: calc(100% - 3*(1.5em)) !important;
   }
   
   /* Tell the cards to take up the space */
-  .vertical-wrap > .squareCard { width: 100%; }
-  /* None-ify the Text elements that are invisible anyway */
-  .vertical-wrap > .squareCard .cardText { display: none; }
+  .vertical-wrap > .squareCard { width: 100%; } 
   
-  /* Make songs take up more horizontal space on mobile */
+  /* Make songs take u p more horizontal space on mobile */
   body:has([data-type="Audio"]) #itemDetailPage .vertical-list > h2 { grid-column: 1/6; }
   body:has([data-type="Audio"]) #itemDetailPage .vertical-list > div { grid-column: 1/6; }
   
-  /* Make logos bigger on mobile */
+  /* Make songs Grids to avoid wrapping */
+  body:has([data-type="Audio"]) #itemDetailPage .vertical-list > div .listItem
+  {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+  }
+  
+  /* Make logos bigger on mobile when they appear */
   #itemDetailPage .detailLogo { max-width: 90vw; z-index: 1; }
   
   /* Make mobile detail section wider */
