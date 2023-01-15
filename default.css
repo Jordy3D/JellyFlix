@@ -2359,33 +2359,36 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
 /* ===== Mobile =============== */
 /* ===================================== */
 
-/* Remove gap at top  */
-.hide + .detailPageWrapperContainer .detailRibbon { margin-top: 0 !important; }
-
-/* Left align Title and reduce font size */
-.layout-mobile .infoWrapper { padding-left: 23px !important; }
-.layout-mobile #itemDetailPage .itemName.infoText.parentNameLast { text-align: left; font-size: 2.2em; }
-
-/* Reize top section */
-.hide + .detailPageWrapperContainer .detailRibbon { height: fit-content !important; }
-
-/* Make Album Art appear bigger */
-.layout-mobile .detailImageContainer,
-.layout-mobile .detailImageContainer .card
+@media screen and (min-width: 500px) 
 {
-  display: block !important;
-  position: relative !important;
-  top: unset !important;
-  left: unset !important;
-  bottom: unset !important;
-  
-  width: 50vw;
-  margin: 0 auto;
-  max-width: unset;
-}
+  /* Remove gap at top  */
+  .hide + .detailPageWrapperContainer .detailRibbon { margin-top: 0 !important; }
 
-/* Remove gap below Genre section */
-.hide + .detailPageWrapperContainer .detailPagePrimaryContent { min-height: fit-content !important; }
+  /* Left align Title and reduce font size */
+  .layout-mobile .infoWrapper { padding-left: 23px !important; }
+  .layout-mobile #itemDetailPage .itemName.infoText.parentNameLast { text-align: left; font-size: 2.2em; }
+
+  /* Reize top section */
+  .hide + .detailPageWrapperContainer .detailRibbon { height: fit-content !important; }
+
+  /* Make Album Art appear bigger */
+  .layout-mobile .detailImageContainer,
+  .layout-mobile .detailImageContainer .card
+  {
+    display: block !important;
+    position: relative !important;
+    top: unset !important;
+    left: unset !important;
+    bottom: unset !important;
+
+    width: 50vw;
+    margin: 0 auto;
+    max-width: unset;
+  }
+
+  /* Remove gap below Genre section */
+  .hide + .detailPageWrapperContainer .detailPagePrimaryContent { min-height: fit-content !important; }
+}
 
 @media screen and (max-width: 500px) 
 {
@@ -2449,6 +2452,61 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
   
   /* Make mobile detail section wider */
   .detailPagePrimaryContent { width: unset; }
+}
+
+
+
+/* Remove gap at top  */
+.hide + .detailPageWrapperContainer .detailRibbon { margin-top: 0 !important; }
+
+/* Left align Title and reduce font size */
+.layout-mobile .infoWrapper { padding-left: 23px !important; }
+.layout-mobile #itemDetailPage .itemName.infoText.parentNameLast { text-align: left; font-size: 2.2em; }
+  
+/* Same for artists, while also removing the slashes and centring the text */
+.layout-mobile #itemDetailPage .parentName, .layout-mobile #itemDetailPage .parentNameLast 
+{ text-align: center; font-size: 0; }
+.layout-mobile #itemDetailPage .parentName a, .layout-mobile #itemDetailPage .parentNameLast a
+{ font-size: 1.3rem !important; }
+
+/* Reize top section */
+.hide + .detailPageWrapperContainer .detailRibbon { height: fit-content !important; }
+
+/* Make Album Art appear bigger */
+.layout-mobile .detailImageContainer,
+.layout-mobile .detailImageContainer .card
+{
+  display: block !important;
+  position: relative !important;
+  top: unset !important;
+  left: unset !important;
+  bottom: unset !important;
+  
+  width: 50vw;
+  margin: 0 auto;
+  max-width: unset;
+}
+
+/* Remove gap below Genre section */
+.hide + .detailPageWrapperContainer .detailPagePrimaryContent { min-height: fit-content !important; }
+
+
+/* Fix home screen media layout */
+.layout-mobile .homeSectionsContainer .section0 .itemsContainer
+{
+  padding: 0 !important;
+  
+  width: calc(90%) !important;
+  margin: 0 auto !important;
+  
+  display: grid;
+  grid-template-columns: repeat(2, calc(50% - 15px));
+  gap: 15px;
+}
+.layout-mobile .homeSectionsContainer .section0 .itemsContainer .homeLibraryButton
+{
+  min-width: unset;
+  width: 100% !important;
 }
 
 
