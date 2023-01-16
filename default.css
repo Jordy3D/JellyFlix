@@ -2359,105 +2359,98 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
 /* ===== Mobile =============== */
 /* ===================================== */
 
-@media screen and (min-width: 500px) 
+/* Remove gap at top  */
+.layout-mobile .hide + .detailPageWrapperContainer .detailRibbon { margin-top: 0 !important; }
+
+/* Left align Title and reduce font size */
+.layout-mobile .infoWrapper { padding-left: 23px !important; }
+.layout-mobile #itemDetailPage .itemName.infoText.parentNameLast { text-align: left; font-size: 2.2em; }
+
+/* Reize top section */
+.layout-mobile .hide + .detailPageWrapperContainer .detailRibbon { height: fit-content !important; }
+
+/* Make Album Art appear bigger */
+.layout-mobile .detailImageContainer,
+.layout-mobile .detailImageContainer .card
 {
-  /* Remove gap at top  */
-  .hide + .detailPageWrapperContainer .detailRibbon { margin-top: 0 !important; }
+  display: block !important;
+  position: relative !important;
+  top: unset !important;
+  left: unset !important;
+  bottom: unset !important;
 
-  /* Left align Title and reduce font size */
-  .layout-mobile .infoWrapper { padding-left: 23px !important; }
-  .layout-mobile #itemDetailPage .itemName.infoText.parentNameLast { text-align: left; font-size: 2.2em; }
-
-  /* Reize top section */
-  .hide + .detailPageWrapperContainer .detailRibbon { height: fit-content !important; }
-
-  /* Make Album Art appear bigger */
-  .layout-mobile .detailImageContainer,
-  .layout-mobile .detailImageContainer .card
-  {
-    display: block !important;
-    position: relative !important;
-    top: unset !important;
-    left: unset !important;
-    bottom: unset !important;
-
-    width: 50vw;
-    margin: 0 auto;
-    max-width: unset;
-  }
-
-  /* Remove gap below Genre section */
-  .hide + .detailPageWrapperContainer .detailPagePrimaryContent { min-height: fit-content !important; }
+  width: 50vw;
+  margin: 0 auto;
+  max-width: unset;
 }
 
-@media screen and (max-width: 500px) 
+/* Remove gap below Genre section */
+.layout-mobile .hide + .detailPageWrapperContainer .detailPagePrimaryContent { min-height: fit-content !important; }
+
+/* Fiddle with Title section to make everything work peroperly */
+.layout-mobile .infoWrapper
 {
-  /* Fiddle with Title section to make everything work peroperly */
-  .layout-mobile .infoWrapper
-  {
-    padding-left: 23px !important;
-    
-    margin-top: 5vh;
-  }
-  #itemDetailPage:not(.noBackdrop) .detailPageWrapperContainer .detailPagePrimaryContainer
-  {
-    display: flex !important;
-    flex-direction: column;
-    align-items: stretch;
-    
-    width: 100% !important;
-    height: fit-content !important;
-    max-width: unset !important;
-  }
-  
-  /* Allow Titles to wrap if they are particularly long */
-  .itemName.parentNameLast
-  {
-    overflow-wrap: break-word;
-    white-space: break-spaces;
-    
-    max-width: unset;
-  }
-  /* Resize title to be slightly smaller */
-  .hide + .detailPageWrapperContainer .detailRibbon,
-  .layout-mobile #itemDetailPage .itemName.infoText.parentNameLast
-  { font-size: 100% !important; }
-  
-  /* Allow albums on mobile to take up more space on the screen (or rather, not leave empty space) */
-  #albumsTab .vertical-wrap
-  {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    gap: 15px;
-    
-    width: calc(100% - 3*(1.5em)) !important;
-  }
-  
-  /* Tell the cards to take up the space */
-  .vertical-wrap > .squareCard { width: 100%; } 
-  
-  /* Make songs take u p more horizontal space on mobile */
-  body:has([data-type="Audio"]) #itemDetailPage .vertical-list > h2 { grid-column: 1/6; }
-  body:has([data-type="Audio"]) #itemDetailPage .vertical-list > div { grid-column: 1/6; }
-  
-  /* Make songs Grids to avoid wrapping */
-  body:has([data-type="Audio"]) #itemDetailPage .vertical-list > div .listItem
-  {
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-  }
-  
-  /* Make logos bigger on mobile when they appear */
-  #itemDetailPage .detailLogo { max-width: 90vw; z-index: 1; }
-  
-  /* Make mobile detail section wider */
-  .detailPagePrimaryContent { width: unset; }
+  padding-left: 23px !important;
+
+  margin-top: 5vh;
+}
+.layout-mobile #itemDetailPage:not(.noBackdrop) .detailPageWrapperContainer .detailPagePrimaryContainer
+{
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+
+  width: 100% !important;
+  height: fit-content !important;
+  max-width: unset !important;
 }
 
+/* Allow Titles to wrap if they are particularly long */
+.layout-mobile .itemName.parentNameLast
+{
+  overflow-wrap: break-word;
+  white-space: break-spaces;
+
+  max-width: unset;
+}
+/* Resize title to be slightly smaller */
+.layout-mobile .hide + .detailPageWrapperContainer .detailRibbon,
+.layout-mobile #itemDetailPage .itemName.infoText.parentNameLast
+{ font-size: 100% !important; }
+
+/* Allow albums on mobile to take up more space on the screen (or rather, not leave empty space) */
+.layout-mobile #albumsTab .vertical-wrap
+{
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  gap: 15px;
+
+  width: calc(100% - 3*(1.5em)) !important;
+}
+
+/* Tell the cards to take up the space */
+.layout-mobile .vertical-wrap > .squareCard { width: 100%; } 
+
+/* Make songs take u p more horizontal space on mobile */
+.layout-mobile body:has([data-type="Audio"]) #itemDetailPage .vertical-list > h2 { grid-column: 1/6; }
+.layout-mobile body:has([data-type="Audio"]) #itemDetailPage .vertical-list > div { grid-column: 1/6; }
+
+/* Make songs Grids to avoid wrapping */
+.layout-mobile body:has([data-type="Audio"]) #itemDetailPage .vertical-list > div .listItem
+{
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+
+/* Make logos bigger on mobile when they appear */
+.layout-mobile #itemDetailPage .detailLogo { max-width: 90vw; z-index: 1; }
+
+/* Make mobile detail section wider */
+.layout-mobile .detailPagePrimaryContent { width: unset; }
 
 
 /* Remove gap at top  */
-.hide + .detailPageWrapperContainer .detailRibbon { margin-top: 0 !important; }
+.layout-mobile .hide + .detailPageWrapperContainer .detailRibbon { margin-top: 0 !important; }
 
 /* Left align Title and reduce font size */
 .layout-mobile .infoWrapper { padding-left: 23px !important; }
@@ -2470,7 +2463,7 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
 { font-size: 1.3rem !important; }
 
 /* Reize top section */
-.hide + .detailPageWrapperContainer .detailRibbon { height: fit-content !important; }
+.layout-mobile .hide + .detailPageWrapperContainer .detailRibbon { height: fit-content !important; }
 
 /* Make Album Art appear bigger */
 .layout-mobile .detailImageContainer,
@@ -2488,7 +2481,7 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
 }
 
 /* Remove gap below Genre section */
-.hide + .detailPageWrapperContainer .detailPagePrimaryContent { min-height: fit-content !important; }
+.layout-mobile .hide + .detailPageWrapperContainer .detailPagePrimaryContent { min-height: fit-content !important; }
 
 
 /* Fix home screen media layout */
