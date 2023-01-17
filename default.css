@@ -2503,11 +2503,38 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
 }
 
 
+/* Attempt to clean up Mobile view of some elements */
+.layout-mobile .itemsContainer.vertical-wrap
+{
+  display: grid;
+    justify-items: center;
+  grid-template-columns: repeat(2,1fr);
+  gap: 5px;
+  
+  padding: 0;
+}
+.layout-mobile .itemsContainer.vertical-wrap > div { width: 95%; }
+
+/* Clean up mobile Activity display */
+.layout-mobile .listItem { flex-wrap: nowrap; }
+
+/* Hide Title that sticks around when it shouldn't */
+.layout-mobile #itemDetailPage .parentName a, .layout-mobile #itemDetailPage .parentNameLast a { display: none; }
+
 
 
 /* ======================== */
 /* ===== Netflix-isms =============== */
 /* ============================================ */
+
+
+/* This was a fucking treck to find. It's the simplest HTML I could find between a Season and a Series page in ordr to distinguish between the two. 
+This will stop Seasons from having a gap above them akin to the Netflix-esque gap on Series pages.
+*/
+body:not(:has(.cardPadder-overflowBackdrop.lazy-hidden-children)) .detailPagePrimaryContent
+{
+  min-height: unset !important;
+}
 
 /* Netflix-ise Section Headers */
 .sectionTitleTextButton { width: fit-content; }
@@ -2545,5 +2572,22 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
 }
 
 .sectionTitleTextButton>.material-icons { color: #54b9c5; }
+
+
+/* ================ */
+/* ===== Misc ========== */
+/* ========================== */
+
+/* MAL-Sync support, for funsies */
+#malp { padding-left: 1.6em; }
+
+.layout-mobile #malp
+{
+  max-width: unset;
+  width: 100vw;
+  padding: 0 5vw;
+}
+
+
 
 /*#endregion*/
