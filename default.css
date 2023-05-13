@@ -2508,7 +2508,7 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
 {
   display: grid;
     justify-items: center;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2,50%);
   gap: 5px;
   
   padding: 0;
