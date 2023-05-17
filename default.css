@@ -2521,6 +2521,14 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
 /* Hide Title that sticks around when it shouldn't */
 .layout-mobile #itemDetailPage .parentName a, .layout-mobile #itemDetailPage .parentNameLast a { display: none; }
 
+/* Fix position on Play/Watched/Etc on mobile */
+.layout-mobile .mainDetailButtons
+{
+  padding: 0;
+  width: 60%;
+  margin: 0 auto;
+  min-width: 50vw;
+}
 
 
 /* ======================== */
