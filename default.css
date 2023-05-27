@@ -2530,6 +2530,34 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
   min-width: 50vw;
 }
 
+/* Fix up some spacing on mobile song list items */
+.layout-mobile .itemsContainer > *:last-child { padding: 0 !important; }
+.listItem-indexnumberleft
+{
+  min-width: 2em;
+  padding-left: 0 !important;
+}
+
+/* Fix Main Dashboard display */
+.layout-mobile .dashboardSections
+{
+  grid-auto-columns: 100%;
+}
+
+.layout-mobile .activeDevices 
+{
+  display: flex !important;
+  justify-content: center;
+}
+
+.layout-mobile .itemsContainer.vertical-wrap > div
+{
+  width: 100% !important;
+  
+  padding: 0 !important;
+}
+
+
 
 /* ======================== */
 /* ===== Netflix-isms =============== */
