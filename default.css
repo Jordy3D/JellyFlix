@@ -2560,12 +2560,11 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
 /* Nicer album art section on mobile */
 .layout-mobile div#itemBackdrop
 {
-  width: 103vw;
+  width: 100vw;
   height: auto !important;
   aspect-ratio: 1/1;
-  background-size: contain;
+  background-size: cover;
   
-  left: -1em;
   margin-top: 0em;
   
   mask-image: linear-gradient(to top, transparent 0%, black),
