@@ -2557,6 +2557,28 @@ body:has([data-type="Audio"]) #itemDetailPage .listGroupHeader { grid-column: 2/
   padding: 0 !important;
 }
 
+/* Nicer album art section on mobile */
+.layout-mobile div#itemBackdrop
+{
+  width: 103vw;
+  height: auto !important;
+  aspect-ratio: 1/1;
+  background-size: contain;
+  
+  left: -1em;
+  margin-top: 0em;
+  
+  mask-image: linear-gradient(to top, transparent 0%, black),
+    linear-gradient(to top, transparent, #0005);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black),
+    linear-gradient(to top, transparent, #0005);
+}
+
+.layout-mobile .detailImageContainer
+{
+  margin-top: 2em;
+}
+
 
 
 /* ======================== */
